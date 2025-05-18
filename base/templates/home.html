@@ -1,0 +1,52 @@
+{% extends "main.html" %}
+
+{% block content %}
+<main class="container my-5">
+    <div class="row">
+      <!-- Blog Posts Section (2/3 width) -->
+      <div class="col-lg-8">
+        <h2 class="mb-4">Latest Blog Posts</h2>
+  
+        <!-- Example Blog Post Card -->
+        {% for post in posts %}
+            <div class="card mb-4">
+            <div class="card-body">
+                {% if post.title %}
+                <h4 class="card-title">{{post.title}}</h4>
+                {% endif %}
+                <p class="card-text">{{post.content}}</p>
+                <a href="/post/1" class="btn btn-primary">Read More</a>
+            </div>
+            </div>
+        
+        {% endfor %}
+        
+  
+        <!-- Add more blog post cards here... -->
+
+                    
+      </div>
+  
+      <!-- Best Posts Sidebar (1/3 width) -->
+      <div class="col-lg-4">
+        <h2 class="mb-4">Best Posts</h2>
+        
+        <!-- List Group for Best Posts -->
+        <div class="list-group">
+          <a href="/post/5" class="list-group-item list-group-item-action">
+            🔥 How to Write Viral Blog Posts
+          </a>
+          <a href="/post/8" class="list-group-item list-group-item-action">
+            💡 Top 10 Productivity Hacks
+          </a>
+          <a href="/post/12" class="list-group-item list-group-item-action">
+            ✨ Mastering Django in 7 Days
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+  
+{% endblock content %}
+
+
