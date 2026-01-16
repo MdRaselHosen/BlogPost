@@ -8,6 +8,8 @@ from django.contrib.messages import get_messages
 
 # Create your views here.
 
+
+
 def signIn(request):
 
     if request.method == 'POST':
@@ -69,8 +71,8 @@ def signOut(request):
 
 @login_required
 def profile(request):
-    user = User.objects.all()
+    user = request.user
     context = {
-        'users':user
+        'user':user
     }
     return render(request, 'profile.html',context)
