@@ -4,7 +4,7 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.messages import get_messages
-
+from base.models import Post
 
 # Create your views here.
 
@@ -72,7 +72,10 @@ def signOut(request):
 @login_required
 def profile(request):
     user = request.user
+    blogs = Post.objects.filter(author=request.user)
+    print(blogs)
     context = {
-        'user':user
+        'user':user,
+        'blogs':blogs
     }
     return render(request, 'profile.html',context)

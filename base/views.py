@@ -11,4 +11,10 @@ def home(request):
     return render(request, 'home.html',context)
 
 
-
+def blog_details(request,pk):
+    blog = Post.objects.get(pk=pk)
+    print("blog is ", blog)
+    context = {
+        'blog':blog
+    }
+    return render(request, "blog_detail.html",context)

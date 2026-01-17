@@ -54,7 +54,7 @@
             <!-- Auth Buttons -->
             {% if user.is_authenticated %}
             <div class="d-flex">
-              <a href="{% url 'signOut' %}" class="btn btn-outline-primary me-2">Logout</a>
+              {% comment %} <a href="{% url 'signOut' %}" class="btn btn-outline-primary me-2">Logout</a> {% endcomment %}
               <a href="{% url 'profile' %}" class="btn btn-primary">Profile</a>
             </div>
 
