@@ -5,6 +5,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.messages import get_messages
 from base.models import Post
+from .forms import ProfileUpdateForm, UserUpdateForm
 
 # Create your views here.
 
@@ -71,11 +72,14 @@ def signOut(request):
 
 @login_required
 def profile(request):
+    u_form = UserUpdateForm()
+    p_form = ProfileUpdateForm()
     user = request.user
     blogs = Post.objects.filter(author=request.user)
-    print(blogs)
     context = {
         'user':user,
-        'blogs':blogs
+        'blogs':blogs,
+        'u_form':u_form,
+        'p_form':p_form
     }
     return render(request, 'profile.html',context)

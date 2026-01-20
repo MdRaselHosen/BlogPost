@@ -11,8 +11,15 @@
         {% for post in posts %}
             <div class="card mb-4">
             <div class="card-body">
+              <div class="d-flex align-items-center mb-3">
+                {% if post.author.profile.image %}
+                <img src="{{ post.author.profile.image.url }}" class="rounded-circle" width="40" height="40" style="object-fit: cover; flex-shrink: 0;">
+                {% else %}
+                <div class="rounded-circle bg-secondary" width="40" height="40" style="width: 40px; height: 40px; flex-shrink: 0;"></div>
+                {% endif %}
+                <p class="ms-2 mb-0"><strong>{{post.author | capfirst}}</strong></p>
+              </div>
                 {% if post.title %}
-                <p>@{{post.author}}</p>
                 <h4 class="card-title">{{post.title}}</h4>
                 {% endif %}
                 <p class="card-text">{{post.content}}</p>
