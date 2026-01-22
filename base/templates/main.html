@@ -55,7 +55,9 @@
             {% if user.is_authenticated %}
             <div class="d-flex">
               {% comment %} <a href="{% url 'signOut' %}" class="btn btn-outline-primary me-2">Logout</a> {% endcomment %}
+              <a href="{% url 'create' %}" class="btn btn-primary me-2">Create</a>
               <a href="{% url 'profile' %}" class="btn btn-primary">Profile</a>
+
             </div>
 
             {% else %}
