@@ -20,7 +20,6 @@ def home(request):
 
 def blog_details(request,pk):
     blog = Post.objects.get(pk=pk)
-    print("blog is ", blog)
     context = {
         'blog':blog
     }
