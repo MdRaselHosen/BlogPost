@@ -28,10 +28,10 @@
                     </a>
                     {% if user == blog.author %}
                         <div>
-                            <a class="btn btn-sm btn-warning">
+                            <a href="{% url 'update' blog.id %}" class="btn btn-sm btn-warning">
                                 Edit
                             </a>
-                            <a class="btn btn-sm btn-danger">
+                            <a href="{% url 'delete' blog.id %}" class="btn btn-sm btn-danger">
                                 Delete
                             </a>
 
