@@ -2,10 +2,16 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import *
 from django.contrib.auth.decorators import login_required
+from django.core.paginator import Paginator
 # Create your views here.
 
 def home(request):
-    posts = Post.objects.all().order_by('-data_posted')
+    posts_list = Post.objects.all().order_by('-data_posted')
+    # code for pagination
+    paginator = Paginator(posts_list, 4)
+    page_number = request.GET.get('page')
+    posts = paginator.get_page(page_number)
+
     context = {
         'posts': posts
     }
